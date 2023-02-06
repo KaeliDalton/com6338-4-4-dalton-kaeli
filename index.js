@@ -78,7 +78,32 @@ document.body.onkeyup = function(e){
       incorrectLetters.textContent = ""
       }
     }else{
-      
+      guesses--
+      remainingGuessesEl.textContent = guesses
+      invalid.push(key)
+      incorrectLetters.textContent = invalid
+      if(guesses == 0){
+        losses++
+        lossesEl.textContent = losses
+        previousWordEl.textContent = answer
+        wordToGuessEl.textContent = ""
+        answer = words[Math.floor(Math.random() * words.length)]
+        wordPlayed = answer.split ('')
+        for(i=0; i < answer.length; i++){
+          wordToGuessEl.textContent = wordToGuessEl.textContent + "_"
+          wordPlayed[i] = '_'
+        }
+        guesses = 10
+        remainingGuessesEl.textContent = guesses
+        board = wordPlayed.join("")
+        console.log(answer)
+        wordToGuessEl.textContent = board
+        invalid = []
+        valid = []
+        lastLetters = answer.length
+        incorrectLetters.textContent = ""
+      }
+      var correct = false
     }
 }
 }
