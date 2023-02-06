@@ -26,3 +26,16 @@ var lastLetters = answer.length
 var correct = false
 var valid = []
 var invalid = []
+
+
+remainingGuessesEl.textContent = guesses
+var wordPlayed = answer.split('')
+wordToGuessEl.textContent = ""
+
+for (i=0; i < answer.length; i++){
+  wordPlayed[i] = '_'
+}
+
+var board = wordPlayed.join("")
+console.log(answer)
+wordToGuessEl.textContent = board
